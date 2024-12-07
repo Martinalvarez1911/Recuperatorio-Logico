@@ -24,7 +24,7 @@ barrio(fer, flores).
 esBarrio(Barrio):-
     barrio(_, Barrio).
 
-todasVivenEnPropedadesCopadas(Barrio):-
+barrioCopado(Barrio):-
     esBarrio(Barrio),
     forall(barrio(Persona, Barrio), viveEnPropiedadCopada(Persona)).
 
@@ -75,7 +75,7 @@ tasacion(casaDeJulian, 140000).
 tasacion(casaDeVale, 95000).
 tasacion(casaDeFer, 60000).
 
-podemosComprar(DineroDisponible, PropiedadesComprables, DineroRestante):-
+puedeComprar(DineroDisponible, PropiedadesComprables, DineroRestante):-
     findall(Propiedad, tasacion(Propiedad, _), ListaPropiedades),
     sublista(ListaPropiedades, PropiedadesComprables),
     PropiedadesComprables \= [],
